@@ -1,5 +1,5 @@
 import axios from 'axios';
-axios.defaults.baseURL="https://localhost:7209/items"
+axios.defaults.baseURL=process.env.REACT_APP_API
  
 export default {
   getTasks: async () => {
