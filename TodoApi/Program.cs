@@ -1,6 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 using TodoApi;
 using Microsoft.OpenApi.Models;
+using Microsoft.EntityFrameworkCore;
+using System.Text;
+
 var policyName = "_myAllowSpecificOrigins";
 
 var builder = WebApplication.CreateBuilder(args);
@@ -19,7 +22,8 @@ builder.Services.AddCors(options =>
                             .AllowAnyHeader();
                       });
 });
-builder.Services.AddDbContext<ToDoDbContext>();
+// builder.Services.AddDbContext<ToDoDbContext>();
+builder.Services.AddDbContext<ToDoDbContext>(opt => opt.UseMySql(ServerVersion.AutoDetect(builder.Configuration["ToDoDB"])));
 
 builder.Services.AddSwaggerGen(options =>
 {
