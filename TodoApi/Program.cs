@@ -13,13 +13,14 @@ builder.Services.AddCors(options =>
                       builder =>
                       {
                           builder
-                            .WithOrigins("http://localhost:3000")
+                            .WithOrigins("*")
                             .AllowAnyOrigin()
                             .AllowAnyMethod()
                             .AllowAnyHeader();
                       });
 });
 builder.Services.AddDbContext<ToDoDbContext>();
+
 builder.Services.AddSwaggerGen(options =>
 {
     options.SwaggerDoc("v1", new OpenApiInfo
