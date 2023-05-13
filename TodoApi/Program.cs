@@ -23,7 +23,7 @@ builder.Services.AddCors(options =>
                       });
 });
 // builder.Services.AddDbContext<ToDoDbContext>();
-builder.Services.AddDbContext<ToDoDbContext>(opt => opt.UseMySql(ServerVersion.AutoDetect(builder.Configuration["ToDoDB"])));
+builder.Services.AddDbContext<ToDoDbContext>();
 
 builder.Services.AddSwaggerGen(options =>
 {
